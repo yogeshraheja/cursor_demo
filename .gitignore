@@ -1,0 +1,4 @@
+.venv/
+.env
+monitoring.db
+__pycache__/

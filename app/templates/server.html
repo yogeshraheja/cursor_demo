@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}Server detail — Server monitor{% endblock %}
+
+{% block content %}
+<section class="page-intro">
+  <h1>Server detail</h1>
+  <p class="sample-banner">Sample data. These numbers are placeholders and are not a live reading of this host.</p>
+</section>
+
+<div class="metric-grid">
+  <section class="card" aria-labelledby="cpu-heading">
+    <div class="card-heading">
+      <h2 id="cpu-heading">CPU</h2>
+      <span class="sample-tag">Sample data</span>
+    </div>
+    <dl>
+      <div>
+        <dt>Busy</dt>
+        <dd>18%</dd>
+      </div>
+      <div>
+        <dt>Load average (1, 5, 15 min)</dt>
+        <dd>0.40, 0.35, 0.30</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="card" aria-labelledby="memory-heading">
+    <div class="card-heading">
+      <h2 id="memory-heading">Memory</h2>
+      <span class="sample-tag">Sample data</span>
+    </div>
+    <dl>
+      <div>
+        <dt>Total</dt>
+        <dd>16 GB</dd>
+      </div>
+      <div>
+        <dt>Used</dt>
+        <dd>6.2 GB</dd>
+      </div>
+      <div>
+        <dt>Available</dt>
+        <dd>9.8 GB</dd>
+      </div>
+      <div>
+        <dt>Used percent</dt>
+        <dd>39%</dd>
+      </div>
+      <div>
+        <dt>Swap total</dt>
+        <dd>4 GB</dd>
+      </div>
+      <div>
+        <dt>Swap used</dt>
+        <dd>0.1 GB</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="card" aria-labelledby="network-heading">
+    <div class="card-heading">
+      <h2 id="network-heading">Network</h2>
+      <span class="sample-tag">Sample data</span>
+    </div>
+    <table>
+      <caption class="sr-only">Sample network counters</caption>
+      <thead>
+        <tr>
+          <th scope="col">Interface</th>
+          <th scope="col">Received</th>
+          <th scope="col">Sent</th>
+          <th scope="col">Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>sample0</td>
+          <td>1.2 GB</td>
+          <td>340 MB</td>
+          <td>12 KB/s in, 4 KB/s out</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card" aria-labelledby="ports-heading">
+    <div class="card-heading">
+      <h2 id="ports-heading">Listening ports</h2>
+      <span class="sample-tag">Sample data</span>
+    </div>
+    <table>
+      <caption class="sr-only">Sample listening ports</caption>
+      <thead>
+        <tr>
+          <th scope="col">Port</th>
+          <th scope="col">Protocol</th>
+          <th scope="col">Bind address</th>
+          <th scope="col">Process</th>
+          <th scope="col">PID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>8080</td>
+          <td>TCP</td>
+          <td>127.0.0.1</td>
+          <td>sample-web</td>
+          <td>1001</td>
+        </tr>
+        <tr>
+          <td>5353</td>
+          <td>UDP</td>
+          <td>127.0.0.1</td>
+          <td>sample-dns</td>
+          <td>1002</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+{% endblock %}
