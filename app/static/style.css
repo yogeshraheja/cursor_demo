@@ -6,6 +6,8 @@
   --muted: #5c6b7a;
   --line: #d8dee6;
   --accent: #0f6e6b;
+  --danger: #9d2c2c;
+  --danger-bg: #fdecec;
   --sample-bg: #fff6e5;
   --sample-ink: #8a5a00;
   --sample-line: #f0d7a4;
@@ -86,9 +88,106 @@ h1 {
 }
 
 .empty-message {
-  margin: 0;
+  margin: 0 0 1.25rem;
   color: var(--muted);
   font-size: 1.15rem;
+}
+
+.meta {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+  max-width: 32rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 650;
+}
+
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.45rem 0.95rem;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.button-quiet {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.button-danger {
+  background: transparent;
+  color: var(--danger);
+  border-color: #e4b4b4;
+}
+
+.error,
+.status-error {
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid #f0c2c2;
+  border-radius: 8px;
+}
+
+.status {
+  margin: 0 0 0.35rem;
+}
+
+.sign-out {
+  margin: 0;
+}
+
+.sign-out button {
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  font: inherit;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.server-card h1 {
+  margin-bottom: 0.35rem;
 }
 
 .sample-banner {

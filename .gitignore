@@ -1,4 +1,6 @@
 .venv/
 .env
 monitoring.db
+monitoring.db-*
 __pycache__/
+.pytest_cache/
