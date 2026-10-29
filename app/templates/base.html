@@ -13,8 +13,16 @@
       <p class="title">Server monitor</p>
     </div>
     <nav>
-      <a href="{{ url_for('dashboard') }}"{% if request.endpoint == 'dashboard' %} aria-current="page"{% endif %}>Dashboard</a>
-      <a href="{{ url_for('server_detail') }}"{% if request.endpoint == 'server_detail' %} aria-current="page"{% endif %}>Server detail</a>
+      {% if logged_in %}
+        <a href="{{ url_for('dashboard') }}"{% if request.endpoint == 'dashboard' %} aria-current="page"{% endif %}>Dashboard</a>
+        {% if monitored_server %}
+          <a href="{{ url_for('server_detail') }}"{% if request.endpoint == 'server_detail' %} aria-current="page"{% endif %}>Server</a>
+        {% endif %}
+        <form class="sign-out" method="post" action="{{ url_for('logout') }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+          <button type="submit">Sign out</button>
+        </form>
+      {% endif %}
     </nav>
   </header>
   <main>

@@ -3,8 +3,26 @@
 {% block title %}Dashboard — Server monitor{% endblock %}
 
 {% block content %}
+{% if server %}
+<section class="card server-card">
+  <h1>{{ server.display_name }}</h1>
+  <p class="meta">Hostname {{ server.hostname }}</p>
+  {% if server.notes %}
+    <p>{{ server.notes }}</p>
+  {% endif %}
+  <div class="actions">
+    <a class="button" href="{{ url_for('server_detail') }}">View metrics</a>
+    <form method="post" action="{{ url_for('remove_server') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <button class="button button-danger" type="submit">Remove</button>
+    </form>
+  </div>
+</section>
+{% else %}
 <section class="empty-state">
   <h1>Dashboard</h1>
   <p class="empty-message">No server monitored yet.</p>
+  <a class="button" href="{{ url_for('add_server_page') }}">Add server</a>
 </section>
+{% endif %}
 {% endblock %}

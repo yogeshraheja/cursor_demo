@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Add server — Server monitor{% endblock %}
+
+{% block content %}
+<section class="page-intro">
+  <h1>Add server</h1>
+  <p class="meta">The hostname is taken from this machine. The form does not ask for an address or credentials.</p>
+  {% if error %}
+    <p class="error" role="alert">{{ error }}</p>
+  {% endif %}
+</section>
+{% if blocked %}
+<p><a class="button button-quiet" href="{{ url_for('dashboard') }}">Back to dashboard</a></p>
+{% else %}
+<form class="form" method="post" action="{{ url_for('add_server_page') }}">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+  <label>
+    Display name
+    <input name="display_name" value="{{ display_name }}" maxlength="{{ config.DISPLAY_NAME_MAX }}" required>
+  </label>
+  <label>
+    Notes
+    <textarea name="notes" maxlength="{{ config.NOTES_MAX }}" rows="4">{{ notes }}</textarea>
+  </label>
+  <div class="actions">
+    <button class="button" type="submit">Save</button>
+    <a class="button button-quiet" href="{{ url_for('dashboard') }}">Cancel</a>
+  </div>
+</form>
+{% endif %}
+{% endblock %}
